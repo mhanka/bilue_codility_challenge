@@ -35,7 +35,7 @@ describe("Login workflow",()=>{
      it("Failed login using empty password", async ()=>{
        await LoginScreen.usernameField.addValue('rob@example.com');
        await hideKeyboard();
-       await LoginScreen.passwordField.addValue('');
+       await LoginScreen.passwordField.addValue(' ');
        await hideKeyboard();
        await LoginScreen.loginButton.click();
        await expect(await LoginScreen).toBeDisplayed();
@@ -43,9 +43,9 @@ describe("Login workflow",()=>{
        await expect(await LoginScreen.passwordErrorMessage).toHaveTextContaining("Password is required");
     });  
      it("Failed login using empty username", async ()=>{
-       await LoginScreen.usernameField.addValue('rob@example.com');
+       await LoginScreen.usernameField.addValue(' ');
        await hideKeyboard();
-       await LoginScreen.passwordField.addValue('');
+       await LoginScreen.passwordField.addValue('10203040');
        await hideKeyboard();
        await LoginScreen.loginButton.click();
        await expect(await LoginScreen).toBeDisplayed();
